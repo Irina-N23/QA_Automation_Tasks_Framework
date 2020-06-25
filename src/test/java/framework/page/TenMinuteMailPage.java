@@ -40,11 +40,11 @@ public class TenMinuteMailPage extends AbstractPage {
         return this;
     }
 
-    public boolean isEstimatedCostReceivedInEmailEqualToCostFromManualTest(EstimateModel testModel) {
+    public boolean isEstimatedCostEqualToExpectedValue(EstimateModel testModel) {
         ArrayList<String> newWindowsSet = new ArrayList<> (driver.getWindowHandles());
         driver.switchTo().window(newWindowsSet.get(1));
 
-        CustomConditions.clickOnClickableElement(emailWithEstimate, driver);
+        CustomConditions.waitForElementToBeClickable(emailWithEstimate, driver).click();
         CustomConditions.waitForVisibilityOf(totalEstimatedMonthlyCost, driver);
         return totalEstimatedMonthlyCost.getText().contains(testModel.getEstimatedTotalCost());
     }

@@ -48,6 +48,6 @@ public class EmailForm extends AbstractPage {
 
         driver.switchTo().window(newWindowsSet.get(0));
         logger.info("Driver switched to Pricing Calculator tab");
-        CustomConditions.switchToInnerFrame(firstCalculatorFrame, secondCalculatorFrame, driver);
+        CustomConditions.framesToBeAvailableAndSwitchToInnerFrame(firstCalculatorFrame, secondCalculatorFrame, driver);
     }
 }

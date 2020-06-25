@@ -25,7 +25,7 @@ public class EstimateResultPage extends AbstractPage {
         return new EmailForm(driver);
     }
 
-    public boolean isEstimatedCostOnCalculatorPageEqualToCostFromManualTest(EstimateModel testModel) {
+    public boolean isEstimatedCostEqualTo(EstimateModel testModel) {
         return totalEstimatedCost.getText().contains(testModel.getEstimatedTotalCost());
     }
 }

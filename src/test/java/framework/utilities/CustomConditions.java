@@ -16,26 +16,27 @@ public class CustomConditions {
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public static void clickOnClickableElement(WebElement element, WebDriver driver) {
+    public static WebElement waitForElementToBeClickable(WebElement element, WebDriver driver) {
         new WebDriverWait(driver, 180)
                 .until(ExpectedConditions.elementToBeClickable(element));
-        element.click();
+        return element;
     }
 
-    public static void clickOnClickableElement(WebElement element, long timeOutInSeconds,
-                                               WebDriver driver) {
+    public static WebElement waitForElementToBeClickable(WebElement element, long timeOutInSeconds,
+                                                         WebDriver driver) {
         new WebDriverWait(driver, timeOutInSeconds)
                 .until(ExpectedConditions.elementToBeClickable(element));
-        element.click();
+        return element;
     }
 
-    public static void switchToInnerFrame(WebElement firstFrame, WebElement secondFrame,
-                                          WebDriver driver) {
-        switchToAvailableFrame(firstFrame, driver);
-        switchToAvailableFrame(secondFrame, driver);
+    public static void framesToBeAvailableAndSwitchToInnerFrame(WebElement firstFrame, WebElement secondFrame,
+                                                                WebDriver driver) {
+        frameToBeAvailableAndSwitchToIt(firstFrame, driver);
+        frameToBeAvailableAndSwitchToIt(secondFrame, driver);
+        waitForVisibilityOfElementLocated(By.id("select_value_label_57"), driver);
     }
 
-    private static void switchToAvailableFrame(WebElement frame, WebDriver driver) {
+    private static void frameToBeAvailableAndSwitchToIt(WebElement frame, WebDriver driver) {
         new WebDriverWait(driver, 20)
                 .until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frame));
     }

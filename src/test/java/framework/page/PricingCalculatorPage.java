@@ -57,7 +57,8 @@ public class PricingCalculatorPage extends AbstractPage {
     }
 
     public PricingCalculatorPage specifyOptionsForEstimation(EstimateModel testModel) {
-        CustomConditions.switchToInnerFrame(firstCalculatorFrame, secondCalculatorFrame, driver);
+        CustomConditions.framesToBeAvailableAndSwitchToInnerFrame(firstCalculatorFrame,
+                                                                  secondCalculatorFrame, driver);
         chooseComputeEngineMode();
         logger.info("Compute Engine has been specified");
         inputNumberOfInstances(testModel.getNumberOfInstances());
@@ -113,7 +114,7 @@ public class PricingCalculatorPage extends AbstractPage {
 
     private void addGPUs(String valueOfAddGPUsCheckbox, String specifiedNumberOfGPUs,
                          String specifiedGPUType) {
-        if (valueOfAddGPUsCheckbox.equals("checked")) {
+        if (valueOfAddGPUsCheckbox.equals("true")) {
             JavaScriptUtilities.clickOnVisibleElement(addGPUsCheckbox, driver);
 
             String specifiedNumberOfGPUsXpath = "//div[@class='md-select-menu-container md-active "

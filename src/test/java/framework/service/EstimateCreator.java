@@ -13,7 +13,7 @@ public class EstimateCreator {
     public static final String TESTDATA_LOCAL_SSD = "testdata.local.ssd";
     public static final String TESTDATA_DATACENTER_LOCATION = "testdata.datacenter.location";
     public static final String TESTDATA_COMMITTED_USAGE = "testdata.committed.usage";
-    public static final String TESTDATA_ESTIMATED_TOTAL_COST_USD = "testdata.total.cost.usd";
+    public static final String TESTDATA_EXPECTED_TOTAL_COST_USD = "testdata.expected.total.cost.usd";
 
     public static EstimateModel createEstimateModelWithDataFromProperty() {
         return new EstimateModel(TestDataReader.getTestData(TESTDATA_NUMBER_OF_INSTANCES),
@@ -26,6 +26,6 @@ public class EstimateCreator {
                 TestDataReader.getTestData(TESTDATA_LOCAL_SSD),
                 TestDataReader.getTestData(TESTDATA_DATACENTER_LOCATION),
                 TestDataReader.getTestData(TESTDATA_COMMITTED_USAGE),
-                TestDataReader.getTestData(TESTDATA_ESTIMATED_TOTAL_COST_USD));
+                TestDataReader.getTestData(TESTDATA_EXPECTED_TOTAL_COST_USD));
     }
 }
