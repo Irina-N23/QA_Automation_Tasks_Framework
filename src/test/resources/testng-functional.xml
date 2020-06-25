@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Functional" verbose="1" >
+    <test name="EqualCostsInEmailAndInManualTest"   >
+        <classes>
+            <class name="framework.test.FunctionalTest" />
+        </classes>
+    </test>
+</suite>
